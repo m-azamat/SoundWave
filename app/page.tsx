@@ -1,22 +1,43 @@
-import { Track } from "@/types/track";
 
-async function getTracks():Promise<Track[]> {
-  const res = await fetch("http://localhost:3000/api/tracks")
-  return res.json()
-}
+import Playlist from "@/components/Tracks/Playlist";
+import Artist from "@/components/Tracks/Artist";
+import Albums from "@/components/Tracks/Albums";
+import Track from "@/components/Tracks/TrackList";
+import Title from "@/components/Text/Title";
+import Filter from "@/components/Filter";
+// import { useSession } from "next-auth/react";
 
-export default async function Home() {
-  const tracks = await getTracks()
+export default function Home() {
+
+  // const session = useSession();
+
   return (
-    <div className="">
-      <main>
-        {tracks.map(track => (
-          <div key={track.id}>
-            <h2>{track.title}</h2>
-            <h2>{track.artist}</h2>
+    <main>
+      <div className="flex flex-col gap-10">
+        
+        
+          <div>
+            <Filter/>
           </div>
-        ))}
-      </main>
-    </div>
+          <div>
+            <Title className="mb-4">Playlists</Title>
+            <Playlist />
+          </div>
+          <div>
+            <Title className="mb-4">Artists</Title>
+            <Artist/>
+          </div>
+          <div>
+            <Title className="mb-4">Albums</Title>
+            <Albums/>
+          </div>
+          <div>
+            <Title className="mb-4">Tracks</Title>
+            <Track/>
+          </div>
+        
+      
+      </div>
+    </main>
   );
 }
