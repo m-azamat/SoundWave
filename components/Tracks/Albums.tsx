@@ -30,7 +30,7 @@ export default function Albums() {
   if(error) return <ErrorMessage message={error}/>
 
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-5 overflow-x-auto custom-scroll">
       {albums.map(album => (
         <div key={album.id} className="group">
           <div className="relative w-50 h-50">
