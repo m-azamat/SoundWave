@@ -30,23 +30,26 @@ export default function Albums() {
   if(error) return <ErrorMessage message={error}/>
 
   return (
-    <div className="flex gap-5 overflow-x-auto custom-scroll">
+    <div className="flex gap-5 overflow-x-auto overflow-y-hidden custom-scroll">
       {albums.map(album => (
-        <div key={album.id} className="group">
-          <div className="relative w-50 h-50">
+        <div key={album.id} className="group w-48">
+          <div className="relative w-48 h-48">
             {loading ? (
-              <div className="w-50 h-50 bg-gray-300 rounded-lg"/>
+              <div className="w-48 h-48 bg-gray-300 rounded-lg"/>
             ) : (
-              <Image src={album.cover_medium} alt={album.title} width={200} height={200}
+              <Image 
+                src={album.cover_medium} 
+                alt={album.title} 
+                width={200} 
+                height={200}
                 className="rounded-lg"
               />
             )}
             <Link href={`/album/${album.id}`}>
               <Button className="bottom-3 right-2"/>
             </Link>
-          </div>
-          <Text>{album.title}</Text>
-          
+          </div>    
+          <Text className="">{album.title}</Text>      
         </div>
       ))}
     </div>
