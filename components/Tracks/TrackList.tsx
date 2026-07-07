@@ -38,10 +38,10 @@ export default function TrackList() {
           track={track}
           index={i}
           isActive={currentTrack?.id === track.id}
-          isPlaying={isPlaying}
+          isPlaying={isPlaying && currentTrack?.id === track.id }
           onPlay={() => {
             if(currentTrack?.id === track.id) {
-              setIsPlaying(isPlaying)
+              setIsPlaying(!isPlaying)
             } else {
               setCurrentTrack(track)
               setIsPlaying(true)
