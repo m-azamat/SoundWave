@@ -46,7 +46,7 @@ export default function Player(){
               height={60}
               className="rounded-xl flex-none"
             />
-            <div className="min-w-0 truncate">
+            <div className="">
               <Text className="text-sm text-gray-400">
                 {currentTrack?.title}
               </Text>
@@ -56,7 +56,7 @@ export default function Player(){
             </div>
           </div>
       </div>
-      <div className="flex-none w-20 flex justify-center">
+      <div>
         <ButtonPlayer
           isPlaying={isPlaying}
           isActive={isPlaying}
@@ -64,9 +64,6 @@ export default function Player(){
         />
         <audio ref={audioRef}></audio>
       </div>
-      {/* <div>
-        <h1></h1>
-      </div> */}
     </div>
   )
 }
