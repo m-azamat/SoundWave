@@ -27,6 +27,13 @@ export async function GET(request: Request) {
     case "album":
       url = `https://api.deezer.com/album/${id}`;
       break;
+    case "search":
+      const query = searchParams.get("q");
+      if(!query) {
+        return NextResponse.json({ error: "Query is required" }, { status: 400 });
+      }
+      url = `https://api.deezer.com/search?q=${encodeURIComponent(query)}`;
+      break;
     default: 
       return NextResponse.json({error: "Invalid type"}, {status: 400});
   }

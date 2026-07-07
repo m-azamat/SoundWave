@@ -19,37 +19,28 @@ export default function TrackItem({
   onPlay
 }: Props) {
   return (
-  <div className="flex items-center justify-between mb-3">
-    <div className="flex items-center gap-7">
-      <p className="opacity-75">
-        {index + 1}
-      </p>
+  <div className="grid grid-cols-[auto_80px_1fr_auto] items-center gap-4 my-6">
+    <p className="text-gray-400">{index + 1}</p>
+    {track.album.cover ? (
+      <Image 
+        src={track.album.cover} 
+        alt={track.title || "track"} 
+        width={70} 
+        height={70} 
+        className="rounded-full"
+      />
+    ) : (
+      <div className="bg-gray-400 rounded-full w-17.5 h-17.5"></div>
+    )}
+    <Text className="font-light">
+      {track.artist.name} - {track.title}
+    </Text>
 
-      {track.album.cover ? (
-        <Image 
-          src={track.album.cover} 
-          alt={track.title || "track"} 
-          width={70} 
-          height={70} 
-          className="rounded-full"
-        />
-      ) : (
-        <div className="bg-gray-400 rounded-full w-17.5 h-17.5"></div>
-      )}
-      
-      <Text className="font-light">
-        {track.artist.name} - {track.title}
-      </Text>
-    </div>
-    <div>
-      {track.preview && (
-        <ButtonPlayer
-          isActive={isActive}
-          isPlaying={isPlaying}
-          onPlay={onPlay}
-        />
-      )}
-    </div>
+    <ButtonPlayer
+      isActive={isActive}
+      isPlaying={isPlaying}
+      onPlay={onPlay}
+    />
   </div>
   )
 }

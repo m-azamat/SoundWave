@@ -35,15 +35,15 @@ export default function Artist() {
   if(error) return <ErrorMessage message={error}/>
 
   return(
-    <div className="flex align-center gap-5 text-center overflow-x-auto custom-scroll">
+    <div className="flex align-center gap-5 text-center overflow-x-auto overflow-y-hidden custom-scroll">
       {artists.map(artist => (
         <div key={artist.id} className="text-center">
           <div className="relative w-48 h-48 group">
             <Image 
               src={artist.picture_medium} 
               alt={artist.name} 
-              width={192}
-              height={192}
+              width={200}
+              height={200}
               className="
                 object-cover
                 rounded-full

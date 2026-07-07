@@ -33,17 +33,21 @@ export default function Playlist() {
   if(error) return <ErrorMessage message={error}/>
 
   return (
-    <div className="flex align-center gap-5 text-center overflow-x-auto custom-scroll">
+    <div className="flex align-center gap-5 text-center overflow-x-auto overflow-y-hidden custom-scroll">
       {playlists.map(playlist=> (
         <div key={playlist.id} className="group">
           <div className="relative w-48 h-48">
-            <Image 
-              src={playlist.picture_medium} 
-              alt={playlist.title} 
-              width={200} 
-              height={200}
-              className="rounded-lg" 
-            />
+            {loading ? (
+              <div className="w-48 h-48 bg-gray-300 rounded-lg"/>
+            ) : (
+              <Image 
+                src={playlist.picture_medium} 
+                alt={playlist.title} 
+                width={200}
+                height={200}
+                className="rounded-lg"
+              />
+            )}
             <Link href={`/playlist/${playlist.id}`}>
               <Button className="bottom-3 right-2"/>
             </Link>

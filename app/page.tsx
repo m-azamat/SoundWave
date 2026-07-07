@@ -3,7 +3,7 @@ import Artist from "@/components/Tracks/Artist";
 import Albums from "@/components/Tracks/Albums";
 import Track from "@/components/Tracks/TrackList";
 import Title from "@/components/Text/Title";
-import Filter from "@/components/Filter";
+import Filter from "@/components/LiveSearch";
 
 export default function Home() {
 
