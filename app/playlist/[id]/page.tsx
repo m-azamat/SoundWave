@@ -46,23 +46,25 @@ export default function Playlist() {
   return (
     <div>
       <Title className="mb-7">Playlist`s {titlePlaylist}</Title>
-      {tracks.map((t, i) => (
-        <TrackItem
-          key={t.id}
-          track={t}
-          index={i}
-          onPlay={() => {
-            if(currentTrack?.id == t?.id) {
-              setIsPlaying(!isPlaying)
-            }else {
-              setCurrentTrack(t)
-              setIsPlaying(true)
-            }
-          }}
-          isPlaying={isPlaying && currentTrack?.id === t.id}
-          isActive={currentTrack?.id === t.id}
-        />
-      ))}
+      <div className="">
+        {tracks.map((t, i) => (
+          <TrackItem
+            key={t.id}
+            track={t}
+            index={i}
+            onPlay={() => {
+              if(currentTrack?.id == t?.id) {
+                setIsPlaying(!isPlaying)
+              }else {
+                setCurrentTrack(t)
+                setIsPlaying(true)
+              }
+            }}
+            isPlaying={isPlaying && currentTrack?.id === t.id}
+            isActive={currentTrack?.id === t.id}
+          />
+        ))}
+      </div>
       {loading && (
         <Text>loading...</Text >
       )}
