@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { Providers } from "@/components/Providers";
 import { AudioProvider } from "./context/AudioContext";
 import Player from "@/components/Player/Player";
+import ButtonScrollTop from "@/components/ButtonScrollTop";
 
 const inter = Poppins({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
             <div className="container">
               <Navbar/>
               {children}
+              <ButtonScrollTop/>
               <Player/>
             </div>
           </AudioProvider>
